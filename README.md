@@ -5,8 +5,8 @@
 ## 📷 Preview do projeto
 
 <div align="center">
-  <img width="425" alt="Video" src="https://github.com/LeonardoJorge4/popups/assets/69438854/eb32e444-dce7-44c7-894b-5a1c37cc4e93" />
-  <img width="425" alt="Game" src="https://github.com/LeonardoJorge4/popups/assets/69438854/0c3c66f1-a5c5-4286-b2ed-3e323c7e4568" />
+  <img width="400" alt="Video" src="https://github.com/LeonardoJorge4/popups/assets/69438854/eb32e444-dce7-44c7-894b-5a1c37cc4e93" />
+  <img width="400" alt="Game" src="https://github.com/LeonardoJorge4/popups/assets/69438854/0c3c66f1-a5c5-4286-b2ed-3e323c7e4568" />
 </div>
 
 ## 🕵️ Sobre
