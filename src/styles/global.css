@@ -15,12 +15,11 @@ body {
 
 :focus {
   outline: 0;
-  box-shadow: 0 0 0 2px #00875F;
+  box-shadow: 0 0 0 2px #111111;
 }
 
 body {
-  background-color: #242424;
-  color: #E1E1E6;
+  background-color: #a7a7a7;
   -webkit-font-smoothing: antialiased;
 }
 

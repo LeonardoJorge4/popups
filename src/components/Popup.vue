@@ -1,62 +1,60 @@
 <template>
-  <div class="popup">
-    <h2 class="popup__title">{{ config.title }}</h2>
-    <h3 class="popup__subtitle">{{ config.subtitle }}</h3>
-
-    <div
-      v-if="config.game"
-      class="popup__content popup__content--game"
-    >
+  <div
+    class="popup"
+    :class="config.game ? 'popup__game' : 'popup__video'"
+  >
+    <div v-if="config.game">
       <img
-        src="../assets/slot-machine-icon.png"
         alt="Jogo Caça-Níquel"
-        class="popup__game-image"
+        src="https://images.unsplash.com/photo-1604028297236-42130c7dcc3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
       />
     </div>
 
-    <div
-      v-else
-      class="popup__content popup__content--video"
-    >
+    <div v-else>
       <video
         :src="config.videoUrl"
         controls
       ></video>
     </div>
 
-    <form>
-      <div
-        v-for="(field, index) in config.formFields"
-        :key="index"
-        class="popup__form-field"
-      >
-        <label>{{ field.label }}</label>
-        <input
-          :type="field.type"
-          :placeholder="field.placeholder"
-          class="popup__field"
-        />
-      </div>
+    <div class="popup__form-container">
+      <h2 class="popup__title">{{ config.title }}</h2>
+      <h3 class="popup__subtitle">{{ config.subtitle }}</h3>
 
-      <div
-        v-for="(field, index) in config.consentCheckboxes"
-        :key="index"
-        class="popup__form-field"
-      >
-        <label :for="field.id">{{ field.label }}</label>
-        <input
-          :id="field.id"
-          type="checkbox"
-          class="popup__consent-checkbox"
-        />
-      </div>
-      <button
-        type="submit"
-        class="popup__submit-button"
-      >
-        Enviar
-      </button>
-    </form>
+      <form>
+        <div
+          v-for="(field, index) in config.formFields"
+          :key="index"
+          class="popup__form-field"
+        >
+          <input
+            :type="field.type"
+            :placeholder="field.placeholder"
+            class="popup__field"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="popup__submit-button"
+        >
+          ENVIAR
+        </button>
+
+        <div
+          v-for="(field, index) in config.consentCheckboxes"
+          :key="index"
+          class="popup__container-consent-checkbox"
+        >
+          <input
+            :id="field.id"
+            type="checkbox"
+            class="popup__consent-checkbox"
+          />
+          <label :for="field.id">{{ field.label }}</label>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -68,11 +66,10 @@ export default {
 
 <style scoped>
 .popup {
-  max-width: 450px;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  max-width: 800px;
+  border-radius: 12px;
+  background-color: #fff;
   animation: popupAnimation 0.5s ease-out;
 }
 
@@ -87,26 +84,41 @@ export default {
   }
 }
 
+.popup__game {
+  flex-direction: row;
+}
+
+.popup__video {
+  flex-direction: column;
+}
+
+.popup__game img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.popup__video video {
+  width: 100%;
+  height: 100%;
+}
+
+.popup__form-container {
+  padding: 1.8rem;
+}
+
 .popup__title {
+  color: #111111;
+  font-weight: bold;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
 
 .popup__subtitle {
+  color: #adadad;
   font-weight: 500;
-}
-
-.popup__content {
-  margin: 1rem 0;
-}
-
-.popup__content--game {
-  border: 2px solid #ab222e;
-  animation: borderAnimation 5s infinite;
-}
-
-video {
-  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .popup__form-field {
@@ -118,11 +130,23 @@ video {
 }
 
 .popup__field {
-  border: none;
-  padding: 0.7rem;
-  border-radius: 6px;
-  background-color: #29292e;
-  color: #ffffff;
+  height: 60px;
+  padding: 1rem;
+  color: #111111;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+}
+
+.popup__field::placeholder {
+  color: #ccc;
+}
+
+.popup__container-consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 1rem;
 }
 
 .popup__consent-checkbox {
@@ -131,42 +155,41 @@ video {
   height: 24px;
 }
 
+.popup__container-consent-checkbox label {
+  font-size: 1.2rem;
+  color: #adadad;
+}
+
 .popup__submit-button {
   width: 100%;
-  height: 40px;
+  height: 60px;
   border: 0;
-  background: #00875f;
+  background: #111111;
   color: #ffffff;
   font-weight: bold;
-  padding: 0 1.25rem;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
 .popup__submit-button:hover {
-  background: #015f43;
+  background: #232323;
   transition: background-color 0.2s;
 }
 
-.popup__game-image {
-  width: 100%;
-}
+@media (max-width: 768px) {
+  .popup__game {
+    flex-direction: column;
+  }
 
-@keyframes borderAnimation {
-  0% {
-    border-color: rgb(255, 0, 0);
-  }
-  25% {
-    border-color: rgb(0, 255, 0);
-  }
-  50% {
-    border-color: rgb(0, 0, 255);
-  }
-  75% {
-    border-color: rgb(255, 255, 0);
-  }
-  100% {
-    border-color: rgb(255, 0, 0);
+  .popup__game img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
   }
 }
 </style>

@@ -19,14 +19,13 @@ export default {
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem',
         game: true,
         formFields: [
-          { label: 'Email', type: 'email', placeholder: 'Digite seu email' },
-          { label: 'Nome', type: 'text', placeholder: 'Digite seu nome' },
+          { type: 'email', placeholder: 'Digite seu email' },
+          { type: 'text', placeholder: 'Digite seu nome' },
           {
-            label: 'Número de Celular',
             type: 'tel',
             placeholder: 'Digite seu número de celular',
           },
-          { label: 'Gênero', type: 'text', placeholder: 'Digite seu gênero' },
+          { type: 'text', placeholder: 'Digite seu gênero' },
         ],
         consentCheckboxes: [
           {
