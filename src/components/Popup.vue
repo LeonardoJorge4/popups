@@ -102,10 +102,11 @@ export default {
 .popup__video video {
   width: 100%;
   height: 100%;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .popup__form-container {
-  padding: 1.8rem;
+  padding: 1.5rem;
 }
 
 .popup__title {
@@ -118,7 +119,7 @@ export default {
 .popup__subtitle {
   color: #adadad;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .popup__form-field {
@@ -170,7 +171,7 @@ export default {
   border-radius: 10px;
   cursor: pointer;
   font-size: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .popup__submit-button:hover {
