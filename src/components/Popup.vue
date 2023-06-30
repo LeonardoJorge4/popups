@@ -28,9 +28,9 @@
           class="popup__form-field"
         >
           <input
+            class="popup__field"
             :type="field.type"
             :placeholder="field.placeholder"
-            class="popup__field"
           />
         </div>
 
@@ -59,8 +59,16 @@
 </template>
 
 <script lang="ts">
+import { type PropType } from 'vue';
+import { PopupProps } from '../@types/popup';
+
 export default {
-  props: ['config'],
+  props: {
+    config: {
+      type: Object as PropType<PopupProps>,
+      required: true,
+    },
+  },
 };
 </script>
 
