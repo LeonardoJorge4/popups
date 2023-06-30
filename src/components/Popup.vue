@@ -71,6 +71,7 @@ export default {
   border-radius: 12px;
   background-color: #fff;
   animation: popupAnimation 0.5s ease-out;
+  margin-bottom: 2rem;
 }
 
 @keyframes popupAnimation {
@@ -174,7 +175,12 @@ export default {
   margin-top: 0.5rem;
 }
 
-.popup__submit-button:hover {
+.popup__submit-button[disabled] {
+  background-color: #555555;
+  cursor: not-allowed;
+}
+
+.popup__submit-button:not(:disabled):hover {
   background: #232323;
   transition: background-color 0.2s;
 }

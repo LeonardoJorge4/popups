@@ -1,6 +1,7 @@
 <template>
   <div>
     <Popup :config="gamePopupConfig" />
+    <Popup :config="videoPopupConfig" />
   </div>
 </template>
 
