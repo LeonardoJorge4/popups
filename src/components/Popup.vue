@@ -27,7 +27,20 @@
           :key="index"
           class="popup__form-field"
         >
+          <select
+            id="cars"
+            name="genre"
+            class="popup__field"
+            :placeholder="field.placeholder"
+            v-if="field.type === 'select'"
+          >
+            <option value="male">Masculino</option>
+            <option value="female">Feminino</option>
+            <option value="dont-inform">Prefiro não informar</option>
+          </select>
+
           <input
+            v-else
             class="popup__field"
             :type="field.type"
             :placeholder="field.placeholder"

@@ -26,7 +26,7 @@ export default {
           type: 'tel',
           placeholder: 'Digite seu número de celular',
         },
-        { type: 'text', placeholder: 'Digite seu gênero' },
+        { type: 'select', placeholder: 'Digite seu gênero' },
       ],
       consentCheckboxes: [
         {
@@ -49,7 +49,7 @@ export default {
           type: 'tel',
           placeholder: 'Digite seu número de celular',
         },
-        { type: 'text', placeholder: 'Digite seu gênero' },
+        { type: 'select', placeholder: 'Digite seu gênero' },
       ],
     };
 
